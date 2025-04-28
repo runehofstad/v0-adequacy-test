@@ -42,7 +42,13 @@ export default function ResultsPage() {
     console.log("Booking session with:", { name, email, answers })
 
     setIsSubmitting(false)
-    setIsSubmitted(true)
+
+    // Store user info in localStorage for potential use on thank you page
+    localStorage.setItem("userName", name)
+    localStorage.setItem("userEmail", email)
+
+    // Redirect to thank you page
+    router.push("/thank-you")
   }
 
   const handleDownloadPDF = () => {
